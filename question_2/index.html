@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>question 2</title>
+    <script>
+        function fetchmsg() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '/gethello', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById('msg').innerText = xhr.responseText;
+                } else {
+                    console.error('Error fetching greeting');
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>Question 2</h1>
+    <button onclick="fetchmsg()">Get msg</button>
+    <p id="msg"></p>
+</body>
+</html>

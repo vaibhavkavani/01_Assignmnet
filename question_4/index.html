@@ -1,0 +1,32 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Folder</title>
+</head>
+<body>
+    <h1>Upload Folder</h1>
+    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" webkitdirectory multiple required />
+        <button type="submit">Upload Folder</button>
+    </form>
+    <script>
+        document.getElementById('upload-form').onsubmit = function() {
+            const formData = new FormData(this);
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            return false; // Prevent default form submission
+        };
+    </script>
+</body>
+</html> -->

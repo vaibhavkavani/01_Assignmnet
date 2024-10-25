@@ -1,0 +1,23 @@
+{
+  "name": "question_9",
+  "version": "1.0.0",
+  "main": "server.js",                    
+  "scripts": {
+    "start": "node server.js",              
+    "test": "echo \"Running tests.\"",    
+    "lint": "echo \"Linting code.\"",     
+    "dev": "nodemon server.js",            
+    "clean": "rimraf ./dist"                
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "http": "^0.0.1"                       
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",                   
+    "rimraf": "^3.0.2"                    
+  }
+}

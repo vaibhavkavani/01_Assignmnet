@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Records</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 80%; border-collapse: collapse; margin: 20px 0; }
+        table, th, td { border: 1px solid black; }
+        th, td { padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+    <h2>Employee Records</h2>
+    <form action="/add" method="GET">
+    Employee id : <input type="text" name="employeeid" placeholder="Employee ID" required><br/><br/>
+    Employee Name : <input type="text" name="employeename" placeholder="Employee Name" required><br/><br/>
+    Employee DOB : <input type="date" name="dob" placeholder="Date of Birth" required><br/><br/>
+    Employee Salary : <input type="number" name="salary" placeholder="Salary" required step="0.01"><br/><br/>
+    Department Name : <input type="text" name="departmentname" placeholder="Department Name" required><br/><br/>
+        <button type="submit">Add Employee</button>
+    </form>
+    <div id="employeeTable"></div>
+
+    <script>
+        async function loadEmployees() {
+            const response = await fetch('/employees');
+            const employees = await response.json();
+            let tableHtml = '<table><tr><th>Employee ID</th><th>Name</th><th>Date of Birth</th><th>Salary</th><th>Department Name</th></tr>';
+
+            employees.forEach(employee => {
+                tableHtml += `<tr>
+                    <td>${employee.employeeid}</td>
+                    <td>${employee.employeename}</td>
+                    <td>${employee.dob}</td>
+                    <td>${employee.salary}</td>
+                    <td>${employee.departmentname}</td>
+                </tr>`;
+            });
+            tableHtml += '</table>';
+            document.getElementById('employeeTable').innerHTML = tableHtml;
+        }
+        window.onload = loadEmployees;
+    </script>
+</body>
+</html>
